@@ -121,6 +121,8 @@ final class PutDataPointRpc implements TelnetRpc {
       return tsdb.addAnnotation(timestamp, value, tags);
     } else if (Tags.looksLikeInteger(value)) {// integer value
       return tsdb.addPoint(metric, timestamp, Tags.parseLong(value), tags);
+    } else if (value.indexOf('.') < 0) {  // integer value
+      return tsdb.addPoint(metric, timestamp, Tags.parseLong(value), tags);
     } else {  // floating point value
       return tsdb.addPoint(metric, timestamp, Float.parseFloat(value), tags);
     }
