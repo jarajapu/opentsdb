@@ -8,4 +8,9 @@ target
 config.log
 config.status
 configure
+<<<<<<< HEAD
 pom.xml
+=======
+
+.DS_Store
+>>>>>>> uday-opentsdb-16
